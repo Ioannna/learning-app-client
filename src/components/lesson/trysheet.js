@@ -6,6 +6,7 @@ const TrySheet = () => {
             <p>git push -u origin master</p>
             <p>git push </p>
             <p>Add this part only on feature-tryFeature branch</p>
+            <p> Merge conflicts</p>
         </div>
     )
 }
