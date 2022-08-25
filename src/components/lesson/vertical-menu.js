@@ -1,4 +1,9 @@
-const VerticalMenu = () => {
+const VerticalMenu = ({ socket }) => {
+
+    const displayPart1 = () => {
+        
+    }
+
     return (
         <div className="vertical-menu">
             <div className="text">
