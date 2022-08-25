@@ -3,11 +3,11 @@ import NextButton from "../../../lesson/next-button"
 import PreviousButton from "../../../lesson/previous-button"
 import VerticalMenu from "../../../lesson/vertical-menu"
 
-const Lesson = ({ lesson }) => {
+const Lesson = ({ socket, lesson }) => {
     return (
         <div>
             <div className="d-flex">
-                <VerticalMenu />
+                <VerticalMenu socket={socket}/>
                 <div className="section-2">
                     <ContentPLace />
                     <div className="d-flex buttons">

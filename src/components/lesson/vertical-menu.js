@@ -3,7 +3,7 @@ const VerticalMenu = () => {
         <div className="vertical-menu">
             <div className="text">
                 <div>Lectia 1</div>
-                <button>Partea 1</button>
+                <button onClick={displayPart1}>Partea 1</button>
                 <button>Partea 2</button>
                 <button>Quiz</button>
 

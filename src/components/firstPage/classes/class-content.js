@@ -18,7 +18,7 @@ const ClassContent = ({ data, socket }) => {
                                 <Semester name={"Semestrul 2"} socket={socket}/>
                             </div>
                         </div>)
-                    : <Lesson lesson={data} />
+                    : <Lesson socket={socket} lesson={data} />
                 }
             </div>
         )
