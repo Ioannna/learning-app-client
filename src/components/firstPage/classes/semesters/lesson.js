@@ -9,7 +9,7 @@ const Lesson = ({ socket, lesson }) => {
             <div className="d-flex">
                 <VerticalMenu socket={socket}/>
                 <div className="section-2">
-                    <ContentPLace />
+                    <ContentPLace socket={socket} />
                     <div className="d-flex buttons">
                         <PreviousButton />
                         <NextButton />
