@@ -5,9 +5,7 @@ const NextButton = ({ socket }) => {
     const [nextPartNumber, setNextPartNumber] = useState(1);
 
     const displayNextContent = () => {
-        socket.emit("displayNextLesson", { lessonNumber: nextLessonNumber, partNumber: nextPartNumber }  )
-            setNextLessonNumber(nextLessonNumber)
-            setNextPartNumber(nextPartNumber + 1)
+        socket.emit("displayContent", { lessonNumber: nextLessonNumber, partNumber: nextPartNumber }  )
 
         console.log(`Next button. Lesson number: ${nextLessonNumber}. Part number: ${nextPartNumber}`)
     }
