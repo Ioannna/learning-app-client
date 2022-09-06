@@ -11,8 +11,8 @@ const NextButton = ({ socket }) => {
             //     setNextLessonNumber(1)
             //     setNextPartNumber(1)
             // }
-            setNextLessonNumber(nextLessonNumber + 1)
-            setNextPartNumber(1)
+            // setNextLessonNumber(nextLessonNumber + 1)
+            // setNextPartNumber(1)
         } else {
             setNextLessonNumber(nextLessonNumber)
             setNextPartNumber(nextPartNumber + 1)
