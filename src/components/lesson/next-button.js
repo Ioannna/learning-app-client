@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 const NextButton = ({ socket }) => {
-    const [nextLessonNumber, setNextLessonNumber] = useState(null);
-    const [nextPartNumber, setNextPartNumber] = useState(null);
+    const [nextLessonNumber, setNextLessonNumber] = useState(1);
+    const [nextPartNumber, setNextPartNumber] = useState(1);
 
     const displayNextContent = () => {
         socket.emit("displayNextLesson", { lessonNumber: nextLessonNumber, partNumber: nextPartNumber }  )
