@@ -2,6 +2,7 @@ const VerticalMenu = ({ socket }) => {
 
         const displayPart = ({ lessonNumber, partNumber}) => {
             socket.emit("displayPart",{ lessonNumber: lessonNumber, partNumber: partNumber } )
+            socket.emit("currentInfo",{ lessonNumber: lessonNumber, partNumber: partNumber } )
             console.log(lessonNumber)
             console.log(partNumber)
 
