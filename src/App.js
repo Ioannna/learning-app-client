@@ -9,6 +9,7 @@ import Lesson from "./components/firstPage/classes/semesters/lesson"
 function App() {
   const [connectedSocket, setConnectedSocket] = useState()
   const [data, setData] = useState()
+  const [lessons, setLessons] = useState()
 
   useEffect (() => {
     const socket = io()
@@ -22,25 +23,25 @@ function App() {
       console.log(receivedData)
     })
 
-    socket.on("display-lesson1", (lesson) => {
-      setData(lesson)
-    })
+    socket.on('send-lessons', lessonsReceived => {
+      setLessons(lessonsReceived)
+      }
+    )
+
   }, [])
 
   if (!connectedSocket) {
     return <h1>Waiting for connection...</h1>
   }
 
-  console.log(`This is the data ${data}`)
-
    if (data) {
     return (
-      <ClassContent data={data} socket={connectedSocket}/>
+      <ClassContent data={data} socket={connectedSocket} lessons={lessons}/>
     )} else {
       return (
         <div>
           <Header />
-          <FirstPage socket={connectedSocket}/> 
+          <FirstPage socket={connectedSocket} /> 
           <Footer />
         </div>
     )}

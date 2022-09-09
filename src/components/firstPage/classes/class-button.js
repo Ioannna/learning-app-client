@@ -1,5 +1,3 @@
-import { useState } from "react"
-import { Socket } from "socket.io-client"
 
 const ClassButton = ({ socket, className }) => {
     const enterClass = () => {

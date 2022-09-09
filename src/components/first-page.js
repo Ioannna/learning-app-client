@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react"
 import ClassButton from "./firstPage/classes/class-button"
 
 const FirstPage = ({ socket }) => {
+
     return (
         <div className="classes">
             <div className="d-flex">

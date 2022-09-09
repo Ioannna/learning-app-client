@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react"
-import LessonsFirstSemester from "./lessonsFirstSem"
 
-const Semester = ({ name, socket }) => {
-    const [lessons, setLessons] = useState()
+const Semester = ({ name, socket, lessons }) => {
+    console.log(`This are the lessons in semester: ${lessons}`)
 
-    useEffect(() => {
-        socket.emit("first-semester", name)
 
-        socket.on("lessons-first-semester", (lessonsFirstSemester) => {
-            setLessons(lessonsFirstSemester)
-        })
-    }, [])
-    
     return (
-        <div >
-            <h2>{name}</h2>
-             <LessonsFirstSemester socket={socket} lessons={lessons}/>
+        <div>
+            <h1>{name}</h1>
+            <div className="card mt15 p15">
+            {
+                lessons.map((lesson, index) => (
+                    <button key={`message-${index}`}>{lesson.lesson}</button>
+                  ))
+            }
+            </div>
+           
+            
         </div>
     )
-
+    
 }
+
 
 export default Semester
