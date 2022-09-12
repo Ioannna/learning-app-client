@@ -9,12 +9,12 @@ body {
 }
 
 .header {
-    margin-top: 20px;
+    margin-top: 0px;
     text-align: center;
 }
 
 .classes {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     background-color: #75E6DA;
     margin: 10px;
@@ -22,7 +22,7 @@ body {
 
 .card {
     background:#D4F1F4;
-    margin: 10px;
+    margin: 5px;
     text-decoration: #75E6DA;
     text-align: center;
 }
@@ -44,11 +44,12 @@ body {
 .vertical-menu {
     background-color: #189AB4;
     width:25%;
-    height: 530px;
+    height: 490px;
     line-height: 50px;
     margin: 0;
     padding: 0px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .text {
@@ -61,10 +62,11 @@ body {
 .content-place {
     background-color: #75E6DA;
     width: 800px;
-    height: 410px;
+    height: 370px;
     margin: 0;
     padding: 20px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .buttons {

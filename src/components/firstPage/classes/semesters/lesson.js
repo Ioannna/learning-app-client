@@ -3,7 +3,7 @@ import NextButton from "../../../lesson/next-button"
 import PreviousButton from "../../../lesson/previous-button"
 import VerticalMenu from "../../../lesson/vertical-menu"
 
-const Lesson = ({ socket, lesson }) => {
+const Lesson = ({ socket }) => {
     return (
         <div>
             <div className="d-flex">

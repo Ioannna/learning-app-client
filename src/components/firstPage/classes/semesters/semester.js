@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react"
+import Lesson from "./lesson"
 
-const Semester = ({ name, socket, lessons }) => {
-    console.log(`This are the lessons in semester: ${lessons}`)
+const Semester = ({ semester, socket, lessons }) => {
+    const displayLesson = () => {
+        socket.emit('displayLesson', semester)
+    }
 
 
     return (
         <div>
-            <h1>{name}</h1>
+            <h1>{semester}</h1>
             <div className="card mt15 p15">
-            {
-                lessons.map((lesson, index) => (
-                    <button key={`message-${index}`}>{lesson.lesson}</button>
-                  ))
-            }
+                {lessons.map((lesson, index) => (
+                    <button onClick={displayLesson} key={`message-${index}`}>{lesson.lesson}</button>
+                ))}
             </div>
-           
-            
         </div>
     )
     
