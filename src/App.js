@@ -4,11 +4,12 @@ import Header from "./components/header"
 import FirstPage from "./components/first-page"
 import Footer from "./components/footer"
 import ClassContent from "./components/firstPage/classes/class-content"
-import Lesson from "./components/firstPage/classes/semesters/lesson"
 
 function App() {
   const [connectedSocket, setConnectedSocket] = useState()
-  const [data, setData] = useState()
+  const [className, setClassName] = useState()
+  const [lessons, setLessons] = useState()
+  const [learningMode, setLearningMode] = useState(false)
 
   useEffect (() => {
     const socket = io()
@@ -18,32 +19,37 @@ function App() {
     })
 
     socket.on("data", (receivedData) => {
-      setData(receivedData)
+      setClassName(receivedData)
       console.log(receivedData)
     })
+    
+    socket.on('send-lessons', lessonsReceived => {
+      setLessons(lessonsReceived)
+      }
+    )
 
-    socket.on("display-lesson1", (lesson) => {
-      setData(lesson)
+    socket.on('displayLessonS', () => {
+      setLearningMode(true)
     })
+
   }, [])
 
   if (!connectedSocket) {
     return <h1>Waiting for connection...</h1>
   }
 
-  console.log(`This is the data ${data}`)
-
-   if (data) {
+   if (className) {
     return (
-      <ClassContent data={data} socket={connectedSocket}/>
+      <ClassContent className={className} socket={connectedSocket} lessons={lessons} learningMode={learningMode}/>
     )} else {
-      return (
-        <div>
-          <Header />
-          <FirstPage socket={connectedSocket}/> 
-          <Footer />
-        </div>
+    return (
+      <div>
+        <Header />
+        <FirstPage socket={connectedSocket} /> 
+        <Footer />
+      </div>
     )}
+
 }
 
 export default App;
