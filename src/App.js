@@ -7,8 +7,9 @@ import ClassContent from "./components/firstPage/classes/class-content"
 
 function App() {
   const [connectedSocket, setConnectedSocket] = useState()
-  const [className, setClassName] = useState()
+  const [categoryName, setCategoryName] = useState()
   const [lessons, setLessons] = useState()
+  const [categories, setCategories] = useState()
   const [learningMode, setLearningMode] = useState(false)
 
   useEffect (() => {
@@ -19,12 +20,19 @@ function App() {
     })
 
     socket.on("data", (receivedData) => {
-      setClassName(receivedData)
+      setCategoryName(receivedData)
       console.log(receivedData)
     })
     
     socket.on('send-lessons', lessonsReceived => {
       setLessons(lessonsReceived)
+      console.log(`these are the lessons from db received in App: ${lessonsReceived}`)
+      }
+    )
+
+    socket.on('send-categories', categoriesReceived => {
+      setCategories(categoriesReceived)
+      console.log(`these are the categories from db received in App: ${categoriesReceived}`)
       }
     )
 
@@ -34,18 +42,21 @@ function App() {
 
   }, [])
 
+  console.log(`these are the lessons from db received in App: ${lessons}`)
+
   if (!connectedSocket) {
     return <h1>Waiting for connection...</h1>
   }
 
-   if (className) {
+   if (categoryName) {
+     console.log(categoryName)
     return (
-      <ClassContent className={className} socket={connectedSocket} lessons={lessons} learningMode={learningMode}/>
+      <ClassContent categoryName={categoryName} socket={connectedSocket} lessons={lessons} categories={categories} learningMode={learningMode}/>
     )} else {
     return (
       <div>
         <Header />
-        <FirstPage socket={connectedSocket} /> 
+        <FirstPage socket={connectedSocket} categories={categories} /> 
         <Footer />
       </div>
     )}

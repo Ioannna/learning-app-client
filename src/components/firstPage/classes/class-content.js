@@ -4,24 +4,24 @@ import Menu from "../../menu"
 import Lesson from "./semesters/lesson"
 import Semester from "./semesters/semester"
 
-const ClassContent = ({ className, socket, lessons, learningMode }) => {
-    console.log(`This are the lessons in class-content: ${lessons}`)
+const ClassContent = ({ categoryName, socket, lessons, categories, learningMode }) => {
+    console.log(`This are the categories in class-content: ${categories}`)
 
         return (
             <div>
                 <Header />
-                <h3 className="card mt15 p15">{className}</h3>
+                <h3 className="card mt15 p15">{categoryName}</h3>
                 {(learningMode) 
                     ? (
                         <div>
-                            <Lesson socket={socket} />
+                            <Lesson socket={socket} lessons={lessons} />
                         </div>
                         )   
                     : (
                         <div>
                             <div className="d-flex">
-                                <div className="card mt15 p15"><Semester  semester={"Semestrul 1"} socket={socket} lessons={lessons}/></div>
-                                <div className="card mt15 p15"><Semester  semester={"Semestrul 2"} socket={socket} lessons={lessons}/></div>
+                                <div className="card mt15 p15"><Semester semester={"Semestrul 1"} socket={socket} lessons={lessons}/></div>
+                                <div className="card mt15 p15"><Semester semester={"Semestrul 2"} socket={socket} lessons={lessons}/></div>
                             </div>
                         </div>
                         )
