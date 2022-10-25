@@ -6,10 +6,10 @@ const Semester = ({ semester, socket, lessons }) => {
         socket.emit('displayLesson', semester)
     }
     //console.log(`lessons from mongodb: ${lessons}`)
+   
 
     return (
         <div>
-            <h1>{semester}</h1>
             <div className="card mt15 p15">
                 {lessons.map((lesson, index) => (
                     <button onClick={displayLesson} key={`message-${index}`}>{lesson.name}</button>

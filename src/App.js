@@ -26,7 +26,7 @@ function App() {
     
     socket.on('send-lessons', lessonsReceived => {
       setLessons(lessonsReceived)
-      console.log(`these are the lessons from db received in App: ${lessonsReceived}`)
+      console.log(`these are the lessons from db, "send-lessons" event, received in App: ${lessonsReceived}`)
       }
     )
 

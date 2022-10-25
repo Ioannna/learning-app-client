@@ -20,8 +20,7 @@ const ClassContent = ({ categoryName, socket, lessons, categories, learningMode 
                     : (
                         <div>
                             <div className="d-flex">
-                                <div className="card mt15 p15"><Semester semester={"Semestrul 1"} socket={socket} lessons={lessons}/></div>
-                                <div className="card mt15 p15"><Semester semester={"Semestrul 2"} socket={socket} lessons={lessons}/></div>
+                                <div className="card mt15 p15"><Semester semester={"Semester 1"} socket={socket} lessons={lessons}/></div>
                             </div>
                         </div>
                         )
