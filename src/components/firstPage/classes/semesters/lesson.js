@@ -11,6 +11,7 @@ const Lesson = ({ socket, lessons }) => {
                 <div className="section-2">
                     <ContentPLace socket={socket} />
                     <div className="d-flex buttons">
+                        
                         {/* <PreviousButton socket={socket}/>
                         <NextButton socket={socket}/> */}
                      </div>

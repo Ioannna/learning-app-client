@@ -2,7 +2,7 @@ const VerticalMenu = ({ socket, lessons }) => {
 
         const displayPart = (partContent) => {
             socket.emit("displayContent", (partContent))
-            //console.log(partContent)
+            console.log(`from vertical menu ${partContent}`)
     }
 
     return (
@@ -12,7 +12,7 @@ const VerticalMenu = ({ socket, lessons }) => {
                 {lessons.map((lesson, index) => (
                     <div>{lesson.name}
                       {lesson.parts.map((part, index) => (
-                          <button onClick={() => displayPart(part.name)}>{part.name}</button>
+                          <button onClick={() => displayPart(part.content)}>{part.name}</button>
                       ))}
                      <button onClick={() => displayPart(lesson.quiz.name)}>{lesson.quiz.name}</button>
                       
